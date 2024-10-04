@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+{% block stylesheets %}
+<link href="../static/css/index.css" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mt-4">Bem-Vindo</h1>
+                <p class="lead">Este é um site em LAN, feito somente para pessoal autorizado. Caso não seja autorizado, saia imediatamente.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12 my-auto text-center">
+                <img src="{{ url_for('static', filename='assets/Oficina.jpg') }}" alt="Oficina de Carro" class="img-fluid mt-3 custom-img-size">
+                <p class="mt-3">Desenvolvido por: <a href="https://github.com/BelfortJoao" target="_blank">Belfor Joao</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+```

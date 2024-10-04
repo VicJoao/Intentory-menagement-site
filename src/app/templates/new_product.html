@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Novo Produto{% endblock %}
+
+{% block content %}
+ <div class="col-6 mx-auto align-items-center" style="margin-top: 50px; margin-bottom: 50px">
+    <button class="btn btn-primary" onclick="window.location.href='/search_product'">Voltar</button>
+    <!-- Formulário com placeholders -->
+    <form id="productCreate" action="/new_product" method="POST">
+        {{ form.csrf_token }}
+        <div class="mb-3">
+            <label class="form-label" for="productName">Nome:</label>
+            {{ form.productName(id="productName", class="form-control form-control-lg", placeholder="Nome do Novo Produto") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="productPrice">Preço:</label>
+            {{ form.productPrice(id="productPrice", class="form-control form-control-lg", placeholder="Preço do Novo Produto") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="productCode">Código:</label>
+            {{ form.productCode(id="productCode", class="form-control form-control-lg", placeholder="Código do Novo Produto") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="productQuantity">Quantidade:</label>
+            {{ form.productQuantity(id="productQuantity", class="form-control form-control-lg", placeholder="Quantidade do Novo Produto") }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="productDescription">Descrição:</label>
+            {{ form.productDescription(id="productDescription", class="form-control form-control-lg", placeholder="Descrição do Novo Produto") }}
+        </div>
+
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+{% endblock %}

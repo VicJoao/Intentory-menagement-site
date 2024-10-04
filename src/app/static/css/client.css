@@ -1,0 +1,11 @@
+/* Estilo padrão para os links */
+ul li a {
+    color: inherit; /* Usa a cor de texto padrão */
+    text-decoration: none; /* Remove a decoração de texto padrão */
+    transition: color 0.3s ease; /* Adiciona uma transição suave para a cor ao passar o mouse */
+}
+
+/* Estilo ao passar o mouse sobre os links */
+ul li a:hover {
+    color: gray; /* Cor cinza ao passar o mouse */
+}

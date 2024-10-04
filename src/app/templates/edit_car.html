@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{car.modelo}}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <button class="btn btn-primary" onclick="window.location.href='/client/{{car.client_id}}}'">Voltar</button>
+    <!-- Formulário com placeholders -->
+     <form id="carEdit" action="/edit_car/{{car.id}}" method="POST">
+        {{ form.csrf_token }}
+         {{form.submit_delete(class="btn btn-primary")}}
+        <div class="mb-3">
+            <label class="form-label">Modelo: {{car.name}}</label>
+            {{ form.modelo(class="form-control form-control-lg", placeholder="Modelo do carro") }}
+        </div>
+        {{ form.submit_edit(class="btn btn-primary") }}
+
+    </form>
+</div>
+{% endblock %}

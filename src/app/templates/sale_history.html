@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Historico de Compras{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Historico de Compras</h1>
+                {% if sales %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Data/hora</th>
+                                <th>Total</th>
+                                <th>Cliente</th>
+                                <th>Itens</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for sale in sales %}
+                                <tr>
+                                    <td>{{ sale.id }}</td>
+                                    <td>{{ sale.date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                                    <td>${{ sale.total }}</td>
+                                    <td>{{ sale.client }}</td>
+                                    <td>
+                                        {% if sale.items %}
+                                            <ul>
+                                                {% for item in sale.items %}
+                                                    <li>{{ item.0 }} X {{ item.1 }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% else %}
+                                            No items
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>No sales available.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

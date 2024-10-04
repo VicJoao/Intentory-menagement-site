@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{phone.number}}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <button class="btn btn-primary" onclick="window.location.href='/client/{{phone.client_id}}}'">Voltar</button>
+    <!-- Formulário com placeholders -->
+     <form id="carEdit" action="/edit_phone/{{phone.id}}" method="POST">
+        {{ form.csrf_token }}
+         {{form.submit_delete(class="btn btn-primary")}}
+        <div class="mb-3">
+            <label class="form-label">Modelo: {{phone.number}}</label>
+            {{ form.number(class="form-control form-control-lg", placeholder="Numero de Telefone") }}
+        </div>
+        {{ form.submit_edit(class="btn btn-primary") }}
+
+    </form>
+</div>
+{% endblock %}

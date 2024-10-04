@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Atualizar Produto{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top: 50px; margin-bottom: 50px">
+    <button class="btn btn-primary" onclick="window.location.href='/search_product'">Voltar</button>
+    {% if produto %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 style="margin-top: 34px">Informações do Produto</h1>
+                <ul class="list-group" style="list-style: none;">
+                    <li class="list-group-item">Nome: {{ produto.name }}</li>
+                    <li class="list-group-item">Preço: {{ produto.price }}</li>
+                    <li class="list-group-item">Codigo: {{ produto.code }}</li>
+                    <li class="list-group-item">Quantidade em Estoque: {{ produto.quantity }}</li>
+                    <li class="list-group-item">Descrição:<br> {{produto.description}}</li>
+                </ul>
+            </div>
+            <div class="col-sm">
+                <form id="productAtt" action="/product/{{ produto.name}}" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        <label for="productName" class="form-label">Novo Nome: </label>
+                        {{ form.productName(id="productName", class="form-control form-control-lg", placeholder="Novo Nome") }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="productPrice" class="form-label">Novo Preço: </label>
+                        {{ form.productPrice(id="productPrice", class="form-control form-control-lg", placeholder="Novo Preço") }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="productCode" class="form-label">Novo Código: </label>
+                        {{ form.productCode(id="productCode", class="form-control form-control-lg", placeholder="Novo Código") }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="productQuantity" class="form-label">Nova Quantidade: </label>
+                        {{ form.productQuantity(id="productQuantity", class="form-control form-control-lg", placeholder="Nova Quantidade") }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="productDescription" class="form-label">Nova Descrição: </label>
+                        {{ form.productDescription(id="productDescription", class="form-control form-control-lg", placeholder="Nova Descrição") }}
+                    </div>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+
+                <!-- "Deletar" button with red color and right alignment -->
+                <a href="/delete_product/{{ produto.name }}" class="btn btn-danger float-end">Deletar</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h1>Produto não encontrado</h1>
+    {% endif %}
+</div>
+{% endblock %}
+

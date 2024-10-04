@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Sale Page 3{% endblock %}
+{% block stylesheets %}
+    <link rel="icon" type="image/x-icon" href="../../static/assets/favicon.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../../../static/css/styles.css" rel="stylesheet" />
+    <link href="../../../static/css/searchbar.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{ product.name }}</h1>
+                <p>Price: ${{ product.price }}</p>
+                <p>Available Quantity: {{ product.quantity }}</p>
+                <!-- Adicione o campo de quantidade -->
+                <form method="POST" action="{{ url_for('sale_page3', name=product.name, id=id, kart=kart) }}">
+                    {{ form.csrf_token }}
+                    <div class="form-group">
+                        {{ form.hidden_tag() }}
+                        <label for="{{ form.quantity.id }}">Quantidade:</label>
+                        <div class="input-group">
+                            {{ form.quantity(class="form-control") }}
+                        </div>
+                    </div>
+                    <button type="submit" name="submit_item" class="btn btn-primary">Confirmar</button>
+                </form>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="flash-messages">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <a href="{{ url_for('sale_page2', id=id, kart=kart) }}" class="btn btn-primary">Voltar</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

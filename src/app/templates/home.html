@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center" style="height: 50vh;"> <!-- Centralize essa div usando bootstrap -->
+        <div>
+            <a href="{{ url_for('logout') }}">
+                <button class="btn btn-danger btn-lg px-5">Sair</button>
+            </a>
+            <div style="margin-top: 60px;"></div> <!-- Espaçamento adicional -->
+
+            <div class="container text-center mt-3" id="central-buttons">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="{{ url_for('search_client') }}">
+                            <button class="btn btn-primary btn-lg px-5">Clientes</button>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ url_for('search_product') }}">
+                            <button class="btn btn-primary btn-lg px-5">Estoque</button>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="{{ url_for('sale_page1') }}">
+                            <button class="btn btn-primary btn-lg px-5">Compra</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Cliente{% endblock %}
+
+{% block stylesheets %}
+    <link href="../static/css/searchbar.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary" onclick="window.location.href='/home'">Voltar</button>
+                <h1 style="margin-top: 35px">Compra</h1>
+                <div class="wrapper">
+                    <div class="searchBar">
+                            <form id="searchQueryForm" action="/sale_page1" method="POST">
+                                {{ form.csrf_token }}
+                                {{ form.clientName(id="searchQueryInput", placeholder="Search", value="", list="nameDatalist") }}
+                                     <datalist id="nameDatalist">
+                                    <option value="customer1"></option>
+                                    {% for result in results %}
+                                        <option value="{{ result }}"></option>
+                                    {% endfor %}
+                                </datalist>
+                                {{ form.submit(class="btn btn-primary" , value="Continuar")}}
+                            </form>
+                    </div>
+                </div>
+                <div class="col-2 mx-auto align-items-center">
+                        <button class="btn btn-primary" onclick="window.location.href='/sale_page2'">Comprar sem Cliente</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="../static/js/autocomplete.js"></script>
+{% endblock %}

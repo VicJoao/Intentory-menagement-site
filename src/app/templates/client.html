@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Cliente{% endblock %}
+{% block stylesheets %}
+<link href="../static/css/client.css" rel="stylesheet">
+{% endblock %}
+{% block content%}
+<div class="container" style="margin-top: 50px">
+    <button class="btn btn-primary" onclick="window.location.href='/search_client'">Voltar</button>
+    {% if cliente %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1 style="margin-top: 34px">Informações do Cliente</h1>
+                <ul class="list-group" style="list-style: none;">
+                    <li class="list-group-item">Nome: {{cliente.name}}</li>
+                    <li class="list-group-item">CPF: {{cliente.cpf}}</li>
+                    <li class="list-group-item">E-mail: {{cliente.email}}</li>
+                    <li class="list-group-item">Endereço: {{cliente.address}}</li>
+                </ul>
+                <div class="mb-3">
+                    <h1>Carros: </h1>
+                    <!-- Car list -->
+                    <ul class="list-group" style="list-style: none;">
+                        {% for carro in carros %}
+                        <li class="list-group-item"><a href="{{url_for('edit_car', car_id=carro.id)}}">{{carro.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="mb-3">
+                    <h1>Telefones:</h1>
+                    <!-- Phone list -->
+                    <ul class="list-group" style="list-style: none;">
+                        {% for phone in phones %}
+                        <li class="list-group-item"><a href="{{url_for('edit_phone', phone_id=phone.id)}}">{{phone.number}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="mb-3">
+                    <h1>Compras</h1>
+                    <!-- Sale list -->
+                    <ul class="list-group" style="list-style: none;">
+                        {% for sale in sales %}
+                        <li class="list-group-item-secondary"><a href="{{url_for('edit_sale', sale_id=sale.id)}}">{{sale.id}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="container mt-5">
+                    <h2>Historico de Compras</h2>
+
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>ID da Compra</th>
+                                <th>Data/hora</th>
+                                <th>Total da Compra</th>
+                                <th>Produto</th>
+                                <th>Quantidade</th>
+                                <th>Item Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loop through results and populate the table -->
+                            {% for row in itens %}
+                                <tr>
+                                    <td>{{ row.cart_id }}</td>
+                                    <td>{{ row.cart_date }}</td>
+                                    <td>{{ row.cart_total }}</td>
+                                    <td>{{ row.product_name }}</td>
+                                    <td>{{ row.item_quantity }}</td>
+                                    <td>{{ row.item_total }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm">
+                <form id="clientAtt" action="/client/{{cliente.name}}" method="POST">
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        <label class="form-label">Novo Nome:</label>
+                        {{ form.clientName(class="form-control form-control-lg", placeholder="Novo nome") }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo CPF:</label>
+                        {{ form.clientCPF(class="form-control form-control-lg", placeholder="Novo CPF") }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo E-mail:</label>
+                        {{ form.clientEmail(class="form-control form-control-lg", placeholder="Novo e-mail") }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Novo Endereço:</label>
+                        {{ form.clientAddress(class="form-control form-control-lg", placeholder="Novo endereço") }}
+                    </div>
+
+                    {{ form.submit(class="btn btn-primary") }}
+
+                    <!-- "Deletar Cliente" button with red color and right alignment -->
+                    <a href="/delete_client/{{ cliente.name }}" class="btn btn-danger float-end">Deletar Cliente</a>
+                </form>
+
+                <div class="mb-3">
+                    <!-- Car addition form -->
+                    <form id="carAdd" action="/client/{{cliente.name}}/add_car" method="POST">
+                        {{ car_form.csrf_token }}
+                        <div class="mb-3">
+                            <label class="form-label" style="margin-top: 30px; font-weight: bold; font-size: large">Novo Carro:</label>
+                            {{ car_form.modelo(class="form-control form-control-lg", placeholder="Adicionar carro") }}
+                        </div>
+                        {{ car_form.submit(class="btn btn-primary") }}
+                    </form>
+                </div>
+
+                <div class="mb-3">
+                    <!-- Phone addition form -->
+                    <form id="phoneAdd" action="/client/{{cliente.name}}/add_phone" method="POST">
+                        {{ phone_form.csrf_token }}
+                        <div class="mb-3">
+                             <label class="form-label" style="margin-top: 30px; font-weight: bold; font-size: large">Novo Número:</label>
+                            {{ phone_form.number(class="form-control form-control-lg", placeholder="Adicionar telefone") }}
+                        </div>
+                        {{ phone_form.submit(class="btn btn-primary") }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h1>Cliente não encontrado</h1>
+    {% endif %}
+</div>
+
+{% endblock %}

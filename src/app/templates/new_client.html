@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Novo Cliente{% endblock %}
+
+{% block content %}
+ <div class="col-6 mx-auto align-items-center" style="margin-top: 50px; margin-bottom: 50px">
+    <button class="btn btn-primary" onclick="window.location.href='/search_client'">Voltar</button>
+    <!-- Formulário com placeholders -->
+    <form id="clientCreate" action="/new_client" method="POST">
+        {{ form.csrf_token }}
+        <div class="mb-3">
+            <label class="form-label" for="clientName">Nome:</label>
+            {{ form.clientName(id="clientName", class="form-control form-control-lg", placeholder="Nome do Novo Cliente") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="clientCPF">CPF:</label>
+            {{ form.clientCPF(id="clientCPF", class="form-control form-control-lg", placeholder="CPF do Novo Cliente") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="clientEmail">E-mail:</label>
+            {{ form.clientEmail(id="clientEmail", class="form-control form-control-lg", placeholder="E-mail do Novo Cliente") }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="clientAddress">Endereço:</label>
+            {{ form.clientAddress(id="clientAddress", class="form-control form-control-lg", placeholder="Endereço do Novo Cliente") }}
+        </div>
+
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+{% endblock %}
