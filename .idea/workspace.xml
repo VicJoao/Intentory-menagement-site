@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="471dcf40-48d5-4d6f-ad30-a97891e98314" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3242e586-7ac7-4747-94f0-7b2b25bdc92c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3242e586-7ac7-4747-94f0-7b2b25bdc92c.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3242e586-7ac7-4747-94f0-7b2b25bdc92c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3242e586-7ac7-4747-94f0-7b2b25bdc92c/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +72,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/belfo/Documents/GitHub/teste_desenvolvedor&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/belfo/Documents/GitHub/Intentory-menagement-site&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -141,6 +150,8 @@
       <workItem from="1708884778932" duration="324000" />
       <workItem from="1708913107760" duration="25000" />
       <workItem from="1709850358645" duration="76000" />
+      <workItem from="1728680513031" duration="3483000" />
+      <workItem from="1728686024268" duration="336000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

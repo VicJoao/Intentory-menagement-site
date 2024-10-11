@@ -1,0 +1,32 @@
+.banner-img {
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.hero-section {
+    position: relative;
+}
+
+.hero-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.contact-info {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
